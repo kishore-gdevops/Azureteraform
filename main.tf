@@ -4,8 +4,8 @@ provider "azurerm" {
 
 module "rg" {
   source = "./rg"
-  name = var.az_rg_name
-  location = var.az_rg_reg
+  name = module.rg.azurerm_resource_group.az_rg_name.name
+  location = module.rg.azurerm_resource_group.az_rg_name.location
 }
 
 module "storage_account" {
